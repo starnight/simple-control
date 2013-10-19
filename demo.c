@@ -14,10 +14,10 @@
 
 #define ShowU(x, y, pid, u) \
 	printf("err=%d-%d=%d, u=%d*%d+%d*%d+%d*(%d-%d)=%d\n", \
-	(int)y, (int)x, (int)pid.err, (int)pid.Kp, (int)pid.err, \
-	(int)pid.Ki, (int)pid.serr, \
-	(int)pid.Kd, (int)pid.err, (int)pid.perr, \
-	(int)u)
+		(int)y, (int)x, (int)pid.err, (int)pid.Kp, (int)pid.err, \
+		(int)pid.Ki, (int)pid.serr, \
+		(int)pid.Kd, (int)pid.err, (int)pid.perr, \
+		(int)u)
 
 int main (void) {
 	int16_t u = 0;
