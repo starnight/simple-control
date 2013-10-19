@@ -44,9 +44,8 @@ Quick Start
 -----------
 
 This example demos the PID control.
-It will push elements into the QUEUE until the QUEUE is full.  Then pop an
-elements from the QUEUE.  Meanwhile, it will print the status of the QUEUE for
-each action.
+It will initial the pid structure with Kp, Ki, Kd factors.
+Then do the PID control algorithm.
 
 Create a C file where the main function located.
 
