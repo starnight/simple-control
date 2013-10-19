@@ -57,6 +57,14 @@ int main (void) {
 	u = SCIDCon(x, y, &pid);
 	ShowU(x, y, pid, u);
 
+	/*---------------------------Test P-----------------------------*/
+	printf("P control: ");
+	SCInitPID(&pid, 2, 0, 0);
+
+	ShowPID(pid);
+	u = SCPDCon(x, y, &pid);
+	ShowU(x, y, pid, u);
+
 	/*---------------------------Test upper-------------------------*/
 	u = SCUpBandCon(x, y);
 	printf("Upper bound control: ul=%d, vaule=%d, u=%d\n", x, y, u);

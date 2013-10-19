@@ -96,6 +96,16 @@ inline _SC_ALWAYSINLINE SC_BASIC_DATATYPE SCIDCon(
 	return pid->Ki * pid->serr + pid->Kd * (pid->err - pid->perr);
 }
 
+/* P control. */
+inline _SC_ALWAYSINLINE SC_BASIC_DATATYPE SCPCon(
+	SC_BASIC_DATATYPE x,
+	SC_BASIC_DATATYPE y,
+	SC_PID *pid) {
+	/* Have the current error. */
+	pid->err = y - x;
+	return pid->Kp * pid->err;
+}
+
 /* Up bound control. */
 #define SCUpBandCon(ul, v) ((ul > v) ? v : ul)
 /* Lower bound control. */
