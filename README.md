@@ -8,7 +8,7 @@ Find more information from the [Wiki](https://github.com/starnight/simple-contro
 Have the code
 -------------
 
-You can have it from the GitHub: [https://github.com/starnight/simple-control](https://github.com/starnight/simple-control, "Simple Date Sturcture")
+You can have it from the GitHub: [https://github.com/starnight/simple-control](https://github.com/starnight/simple-control "Simple Date Sturcture")
 
 Or, clone the source code from GitHub.
 
