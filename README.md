@@ -1,19 +1,19 @@
-Simple Control
-==============
+Simple Controller
+=================
 
 It is a simple controlling library which provides PID and Band control APIs.
 
-Find more information from the [Wiki](https://github.com/starnight/simple-control/wiki "Simple Control Wiki").
+Find more information from the [Wiki](https://github.com/starnight/simple-controller/wiki "Simple Controller Wiki").
 
 Have the code
 -------------
 
-You can have it from the GitHub: [https://github.com/starnight/simple-control](https://github.com/starnight/simple-control "Simple Control")
+You can have it from the GitHub: [https://github.com/starnight/simple-controller](https://github.com/starnight/simple-controller "Simple Controller")
 
 Or, clone the source code from GitHub.
 
 ```
-git clone git://github.com/starnight/simple-control.git
+git clone git://github.com/starnight/simple-controller.git
 ```
 
 Demo usage
@@ -83,4 +83,4 @@ int main (void) {
 License
 -------
 
-Simple Control's code uses the BSD license, see our '[LICENSE.md](https://github.com/starnight/simple-control/blob/master/LICENSE.md "LICENSE.md")' file.
+Simple Controller's code uses the BSD license, see our '[LICENSE.md](https://github.com/starnight/simple-controller/blob/master/LICENSE.md "LICENSE.md")' file.
