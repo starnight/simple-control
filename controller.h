@@ -49,6 +49,11 @@ inline _SC_ALWAYSINLINE SC_BASIC_DATATYPE SCPIDCon(
 	SC_BASIC_DATATYPE x,
 	SC_BASIC_DATATYPE y,
 	SC_PID *pid ) {
+	/*----------------------------------------------------------------------
+	The discrete PID controller:
+	e(n) = y(n) - x(n)
+	u(n) = Kp * e(n) + Ki * SUM(e(i), i: from 0 to n) + Kd * (e(n) - e(n-1))
+	----------------------------------------------------------------------*/
 	/* Move the previous error. */
 	pid->perr = pid->err;
 	/* Have the current error. */

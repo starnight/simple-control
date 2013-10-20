@@ -84,3 +84,8 @@ License
 -------
 
 Simple Controller's code uses the BSD license, see our '[LICENSE.md](https://github.com/starnight/simple-controller/blob/master/LICENSE.md "LICENSE.md")' file.
+
+Reference
+---------
+* Wiki PID controller: http://en.wikipedia.org/wiki/PID_controller
+* ATMEL AVR221: Discrete PID controller: http://www.atmel.com/images/doc2558.pdf
