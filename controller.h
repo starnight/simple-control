@@ -9,12 +9,12 @@
 
 #include <stdint.h>
 
-/* Define basic data type for controlling.*/
+/* Define basic data type for controlling. */
 #ifndef SC_BASIC_DATATYPE
 #define SC_BASIC_DATATYPE int16_t
 #endif
 
-/* Force inline. */
+/* Force inline or not while compiling. */
 #if SC_ALWAYSINLINE == 1
 #define _SC_ALWAYSINLINE __attribute__((always_inline))
 #else
