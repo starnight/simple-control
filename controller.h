@@ -4,8 +4,8 @@
   in the LICENSE file.
 ------------------------------------------------------------------------------*/
 
-#ifndef __SIMPLE_CONTROL_H__
-#define __SIMPLE_CONTROL_H__
+#ifndef __SIMPLE_CONTROLLER_H__
+#define __SIMPLE_CONTROLLER_H__
 
 #include <stdint.h>
 

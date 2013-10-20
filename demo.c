@@ -5,7 +5,7 @@
 ------------------------------------------------------------------------------*/
 
 #include <stdio.h>
-#include "control.h"
+#include "controller.h"
 
 #define ShowPID(pid) \
 	printf("%d, %d, %d, %d, %d, %d\n", \
