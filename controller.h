@@ -51,13 +51,13 @@ inline _SC_ALWAYSINLINE SC_BASIC_DATATYPE SCPIDCon(
 	SC_PID *pid ) {
 	/*----------------------------------------------------------------------
 	The discrete PID controller:
-	e(n) = y(n) - x(n)
+	e(n) = x(n) - y(n)
 	u(n) = Kp * e(n) + Ki * SUM(e(i), i: from 0 to n) + Kd * (e(n) - e(n-1))
 	----------------------------------------------------------------------*/
 	/* Move the previous error. */
 	pid->perr = pid->err;
 	/* Have the current error. */
-	pid->err = y - x;
+	pid->err = x - y;
 	/* Summarize the error. */
 	pid->serr += pid->err;
 	return pid->Kp*pid->err + pid->Ki*pid->serr + pid->Kd*(pid->err-pid->perr);
@@ -69,7 +69,7 @@ inline _SC_ALWAYSINLINE SC_BASIC_DATATYPE SCPICon(
 	SC_BASIC_DATATYPE y,
 	SC_PID *pid) {
 	/* Have the current error. */
-	pid->err = y - x;
+	pid->err = x - y;
 	/* Summarize the error. */
 	pid->serr += pid->err;
 	return pid->Kp * pid->err + pid->Ki * pid->serr;
@@ -83,7 +83,7 @@ inline _SC_ALWAYSINLINE SC_BASIC_DATATYPE SCPDCon(
 	/* Move the previous error. */
 	pid->perr = pid->err;
 	/* Have the current error. */
-	pid->err = y - x;
+	pid->err = x - y;
 	return pid->Kp * pid->err + pid->Kd * (pid->err - pid->perr);
 }
 
@@ -95,7 +95,7 @@ inline _SC_ALWAYSINLINE SC_BASIC_DATATYPE SCIDCon(
 	/* Move the previous error. */
 	pid->perr = pid->err;
 	/* Have the current error. */
-	pid->err = y - x;
+	pid->err = x - y;
 	/* Summarize the error. */
 	pid->serr += pid->err;
 	return pid->Ki * pid->serr + pid->Kd * (pid->err - pid->perr);
@@ -107,7 +107,7 @@ inline _SC_ALWAYSINLINE SC_BASIC_DATATYPE SCPCon(
 	SC_BASIC_DATATYPE y,
 	SC_PID *pid) {
 	/* Have the current error. */
-	pid->err = y - x;
+	pid->err = x - y;
 	return pid->Kp * pid->err;
 }
 
