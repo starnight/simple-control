@@ -39,9 +39,9 @@ typedef struct _SC_pid {
 /* Initial the PID. */
 inline void SCInitPID (
 	SC_PID *pid,
-	SC_BASIC_DATATYPE p,
-	SC_BASIC_DATATYPE i,
-	SC_BASIC_DATATYPE d) {
+	SC_BASIC_FACTOR_DATATYPE p,
+	SC_BASIC_FACTOR_DATATYPE i,
+	SC_BASIC_FACTOR_DATATYPE d) {
 	/* Set PID factors. */
 	pid->Kp = p;	pid->Ki = i;	pid->Kd = d;
 	/* Zero the initial values. */
