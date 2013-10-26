@@ -14,6 +14,11 @@
 #define SC_BASIC_DATATYPE int16_t
 #endif
 
+/* Define basic factor data type for controlling. */
+#ifndef SC_BASIC_FACTOR_DATATYPE
+#define SC_BASIC_FACTOR_DATATYPE SC_BASIC_DATATYPE
+#endif
+
 /* Force inline or not while compiling. */
 #if SC_ALWAYSINLINE == 1
 #define _SC_ALWAYSINLINE __attribute__((always_inline))
@@ -23,9 +28,9 @@
 
 /* Define the base PID structure. */
 typedef struct _SC_pid {
-	SC_BASIC_DATATYPE Kp;
-	SC_BASIC_DATATYPE Ki;
-	SC_BASIC_DATATYPE Kd;
+	SC_BASIC_FACTOR_DATATYPE Kp;
+	SC_BASIC_FACTOR_DATATYPE Ki;
+	SC_BASIC_FACTOR_DATATYPE Kd;
 	SC_BASIC_DATATYPE err;
 	SC_BASIC_DATATYPE serr;
 	SC_BASIC_DATATYPE perr;
