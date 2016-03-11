@@ -11,7 +11,7 @@
 
 /* Define basic data type for controlling. */
 #ifndef SC_BASIC_DATATYPE
-#define SC_BASIC_DATATYPE int16_t
+#define SC_BASIC_DATATYPE float
 #endif
 
 /* Define basic factor data type for controlling. */
@@ -31,6 +31,7 @@ typedef struct _SC_pid {
 	SC_BASIC_FACTOR_DATATYPE Kp;
 	SC_BASIC_FACTOR_DATATYPE Ki;
 	SC_BASIC_FACTOR_DATATYPE Kd;
+	SC_BASIC_DATATYPE deltaT;
 	SC_BASIC_DATATYPE err;
 	SC_BASIC_DATATYPE serr;
 	SC_BASIC_DATATYPE perr;
@@ -41,9 +42,12 @@ inline void SCInitPID (
 	SC_PID *pid,
 	SC_BASIC_FACTOR_DATATYPE p,
 	SC_BASIC_FACTOR_DATATYPE i,
-	SC_BASIC_FACTOR_DATATYPE d) {
+	SC_BASIC_FACTOR_DATATYPE d,
+	SC_BASIC_DATATYPE t) {
 	/* Set PID factors. */
 	pid->Kp = p;	pid->Ki = i;	pid->Kd = d;
+	/* Set sampling time. */
+	pid->deltaT = t;
 	/* Zero the initial values. */
 	pid->err = 0;	pid->serr = 0;	pid->perr = 0;
 	return;
@@ -65,7 +69,7 @@ inline _SC_ALWAYSINLINE SC_BASIC_DATATYPE SCPIDCon(
 	pid->err = x - y;
 	/* Summarize the error. */
 	pid->serr += pid->err;
-	return pid->Kp*pid->err + pid->Ki*pid->serr + pid->Kd*(pid->err-pid->perr);
+	return pid->Kp*pid->err + pid->Ki*pid->deltaT*pid->serr + pid->Kd*(pid->err-pid->perr)/pid->deltaT;
 }
 
 /* PI control. */
@@ -77,7 +81,7 @@ inline _SC_ALWAYSINLINE SC_BASIC_DATATYPE SCPICon(
 	pid->err = x - y;
 	/* Summarize the error. */
 	pid->serr += pid->err;
-	return pid->Kp * pid->err + pid->Ki * pid->serr;
+	return pid->Kp * pid->err + pid->Ki * pid->deltaT * pid->serr;
 }
 
 /* PD control. */
@@ -89,7 +93,7 @@ inline _SC_ALWAYSINLINE SC_BASIC_DATATYPE SCPDCon(
 	pid->perr = pid->err;
 	/* Have the current error. */
 	pid->err = x - y;
-	return pid->Kp * pid->err + pid->Kd * (pid->err - pid->perr);
+	return pid->Kp * pid->err + pid->Kd * (pid->err - pid->perr) / pid->deltaT;
 }
 
 /* ID control. */
@@ -103,7 +107,7 @@ inline _SC_ALWAYSINLINE SC_BASIC_DATATYPE SCIDCon(
 	pid->err = x - y;
 	/* Summarize the error. */
 	pid->serr += pid->err;
-	return pid->Ki * pid->serr + pid->Kd * (pid->err - pid->perr);
+	return pid->Ki * pid->deltaT * pid->serr + pid->Kd * (pid->err - pid->perr) / pid->deltaT;
 }
 
 /* P control. */
